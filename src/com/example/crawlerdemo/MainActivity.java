@@ -11,10 +11,12 @@ import android.support.v4.app.DialogFragment;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
  
@@ -29,6 +31,8 @@ public class MainActivity extends Activity {
 	private int year;
 	private int month;
 	private int day;
+	
+	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
 	
 	
     @Override
@@ -45,6 +49,16 @@ public class MainActivity extends Activity {
 			
 		}
 	});
+    
+//	    SPINNER SPINNER = (SPINNER) FINDVIEWBYID(R.ID.SPINNERBAR);
+//	 // CREATE AN ARRAYADAPTER USING THE STRING ARRAY AND A DEFAULT SPINNER LAYOUT
+//	 ARRAYADAPTER<CHARSEQUENCE> ADAPTER = ARRAYADAPTER.CREATEFROMRESOURCE(THIS,
+//	         R.ARRAY.BARS, ANDROID.R.LAYOUT.SIMPLE_SPINNER_ITEM);
+//	 // SPECIFY THE LAYOUT TO USE WHEN THE LIST OF CHOICES APPEARS
+//	 ADAPTER.SETDROPDOWNVIEWRESOURCE(ANDROID.R.LAYOUT.SIMPLE_SPINNER_DROPDOWN_ITEM);
+//	 // APPLY THE ADAPTER TO THE SPINNER
+//	 SPINNER.SETADAPTER(ADAPTER);
+    
     }
 
 
@@ -75,6 +89,12 @@ public class MainActivity extends Activity {
  		// set current date into datepicker
  		dpResult.init(year, month, day, null);
   
+ 	}
+ 	
+ 	public void crawlTourTab(View view) {
+ 		Intent intent = new Intent(this, DisplayCrawlActivity.class);
+ 	    
+ 	    startActivity(intent);
  	}
  	
 // 	public void addListenerOnButton() {

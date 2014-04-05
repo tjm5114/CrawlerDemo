@@ -6,4 +6,17 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_date_picker">DatePicker</string>
 
+    <string-array name="bars">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+    <string name="title_activity_display_crawl">DisplayCrawlActivity</string>
+
 </resources>

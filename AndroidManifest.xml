@@ -26,6 +26,10 @@
             android:name="com.example.crawlerdemo.DatePicker"
             android:label="@string/title_activity_date_picker" >
         </activity>
+        <activity
+            android:name="com.example.crawlerdemo.DisplayCrawlActivity"
+            android:label="@string/title_activity_display_crawl" >
+        </activity>
     </application>
 
 </manifest>
