@@ -53,29 +53,6 @@
             android:text="Do you want to avoid bars with covers?"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TimePicker
-            android:id="@+id/timePicker1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/button1"
-            android:layout_alignParentLeft="true" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/timePicker1"
-            android:layout_alignParentLeft="true"
-            android:text="Time of the Crawl"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-<!--         <DatePicker -->
-<!--             android:id="@+id/datePicker1" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_alignParentLeft="true" -->
-<!--             android:layout_centerVertical="true" /> -->
-
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
@@ -85,12 +62,36 @@
             android:text="Back" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonCrawlOn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/textView3"
             android:layout_marginRight="21dp"
+            android:onClick="CrawlNoGo"
             android:text="Crawl On" />
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/datePicker1"
+            android:text="Time of the Crawl"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TimePicker
+                android:id="@+id/timePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView5"
+                android:layout_centerHorizontal="true" />
     
 </RelativeLayout>

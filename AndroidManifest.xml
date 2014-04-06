@@ -30,6 +30,18 @@
             android:name="com.example.crawlerdemo.CrawlParameters"
             android:label="@string/title_activity_crawl_parameters" >
         </activity>
+        <activity
+            android:name="com.example.crawlerdemo.CrawlNoGo"
+            android:label="@string/title_activity_crawl_no_go" >
+        </activity>
+        <activity
+            android:name="com.example.crawlerdemo.CrawlNoGo2"
+            android:label="@string/title_activity_crawl_no_go2" >
+        </activity>
+        <activity
+            android:name="com.example.crawlerdemo.CrawlNoGo3"
+            android:label="@string/title_activity_crawl_no_go3" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" >

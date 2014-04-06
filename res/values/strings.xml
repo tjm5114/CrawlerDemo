@@ -26,5 +26,8 @@
     </string-array>
 
     <string name="title_activity_crawl_parameters">CrawlParameters</string>
+    <string name="title_activity_crawl_no_go">CrawlNoGo</string>
+    <string name="title_activity_crawl_no_go2">CrawlNoGo2</string>
+    <string name="title_activity_crawl_no_go3">CrawlNoGo3</string>
 
 </resources>

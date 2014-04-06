@@ -136,7 +136,7 @@ public class DisplayCrawlActivity extends Activity  {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_crawl_2);
+		setContentView(R.layout.activity_display_crawl);
 		
 		StrictMode.ThreadPolicy policy = new StrictMode.
 				ThreadPolicy.Builder().permitAll().build();
