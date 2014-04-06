@@ -1,32 +1,200 @@
 package com.example.crawlerdemo;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.StrictMode;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Spinner;
 
-public class DisplayCrawlActivity extends Activity {
+
+public class DisplayCrawlActivity extends Activity implements OnItemSelectedListener {
+	private Handler mHandler = new Handler();
+	private String _id;
+	private List<String>[] _tours = new ArrayList[3];
+	private String _baseUrl = "http://crawlrapi.ngrok.com/";
+	private String _networkImage;
+	
+	public interface Request{
+		void Process(BufferedReader reader);
+	}
+
+	Request makeRouteAndSaveId = new Request(){
+		public void Process(BufferedReader reader){
+			try{
+				//do request and set guid
+			    String line = "";
+			   // List<String> barStrings = new ArrayList<String>();
+			    if ((line = reader.readLine()) != null) {
+			      System.out.println(line);
+			      _id = line;
+			      //barStrings.add(line);
+			      //System.out.println("bar strings are " + barStrings);
+			      try{
+					mHandler.postDelayed(new Runnable() {
+			            public void run() {
+			            	URL getUrl = null;
+							try {
+								getUrl = new URL(_baseUrl + "result/" + _id);
+							} catch (MalformedURLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+			            	DoGetRequest(getUrl, getRouteAndSaveTours); //sets _tours[]
+			            }
+			        }, 5000);
+			      }
+			      catch(Exception e){}
+				
+			    }
+			}
+			catch(IOException e){}
+		}
+	};
+	
+	Request getRouteAndSaveTours = new Request(){
+
+
+		public void Process(BufferedReader reader)
+		{
+			try{
+				 int tourIndex = 0;
+				 String line = "";
+				   // List<String> barStrings = new ArrayList<String>();
+				    while ((line = reader.readLine()) != null) {
+				    	_tours[tourIndex] = new ArrayList<String>();
+				    	do
+				    	{
+				    		if(line.length() == 0)
+				    			break;
+				    		//get tour
+				    		System.out.println(line);
+				    		_tours[tourIndex].add(line);
+				    	}
+				    	while((line = reader.readLine()) != null);
+				    	tourIndex++;
+				      
+				      //barStrings.add(line);
+				      //System.out.println("bar strings are " + barStrings);
+				    }
+				    
+				    _networkImage = _baseUrl + _id + ".png";
+				    new DownloadImageTask((ImageView) findViewById(R.id.imageView1))
+		            .execute(_networkImage);
+					GenerateListView();
+				
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		}
+	};
+	
+	protected void GenerateListView()
+	{
+		String[] array = _tours[0].toArray(new String[_tours[0].size()]);
+		ArrayAdapter adapter = new ArrayAdapter<String>(this, 
+		        android.R.layout.simple_list_item_1, array);
+		ListView listView = (ListView) findViewById(R.id.listView1);
+		listView.setAdapter(adapter);
+		System.out.println("Done!!");
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_crawl);
+		setContentView(R.layout.activity_display_crawl_2);
 		
-		 URL url = new URL("http://crawlr.ngrok.com/");
-		   HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-		   try {
-		     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-		     readStream(in);
-		    finally {
-		     urlConnection.disconnect();
-		   }
-		 }
+		StrictMode.ThreadPolicy policy = new StrictMode.
+				ThreadPolicy.Builder().permitAll().build();
+				StrictMode.setThreadPolicy(policy); 
+		
+				Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+				// Create an ArrayAdapter using the string array and a default spinner layout
+				ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+				        R.array.numberBars, android.R.layout.simple_spinner_item);
+				// Specify the layout to use when the list of choices appears
+				adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				// Apply the adapter to the spinner
+				spinner.setAdapter(adapter);
+				spinner.setOnItemSelectedListener(this);
+				
+				
+		try {
+			
+			URL makeUrl = new URL(_baseUrl + "route/Inferno");
+			
+			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}	
+    }
+				
+				
+	public void DoGetRequest(URL url, Request req)
+	{
+		try {
+	
+			  HttpURLConnection con = (HttpURLConnection) url
+			    .openConnection();
+			  readStream(con.getInputStream(), req);
+			  } catch (Exception e) {
+			  e.printStackTrace();
+			}
+        
 	}
+	
+	private void readStream(InputStream in, Request req) {
+		  BufferedReader reader = null;
+		  try {
+		    reader = new BufferedReader(new InputStreamReader(in));
+		    req.Process(reader);
+		  } finally {
+		    if (reader != null) {
+		      try {
+		        reader.close();
+		      } catch (IOException e) {
+		        e.printStackTrace();
+		        }
+		    }
+		  }
+		} 	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,5 +202,68 @@ public class DisplayCrawlActivity extends Activity {
 		getMenuInflater().inflate(R.menu.display_crawl, menu);
 		return true;
 	}
+	
+	public void DoPost()
+	{
+//		HttpClient httpClient = new DefaultHttpClient();
+//		
+//		HttpPost httpPost = new HttpPost(
+//                "http://crawlr.ngrok.com/route/result/inferno");		
+//     
+// 
+//        // Making HTTP Request
+//       try {
+//            HttpResponse response = httpClient.execute(httpPost);
+//// 
+////            // writing response to log
+//            Log.d("Http Response:", response.toString());
+//        } catch (ClientProtocolException e) {
+////            // writing exception to log
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            // writing exception to log
+//            e.printStackTrace();
+// 
+//        }
+	}
 
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+	    ImageView bmImage;
+
+	    public DownloadImageTask(ImageView bmImage) {
+	        this.bmImage = bmImage;
+	    }
+
+	    protected Bitmap doInBackground(String... urls) {
+	        String urldisplay = urls[0];
+	        Bitmap mIcon11 = null;
+	        try {
+	            InputStream in = new java.net.URL(urldisplay).openStream();
+	            mIcon11 = BitmapFactory.decodeStream(in);
+	        } catch (Exception e) {
+	            Log.e("Error", e.getMessage());
+	            e.printStackTrace();
+	        }
+	        return mIcon11;
+	    }
+
+	    protected void onPostExecute(Bitmap result) {
+	        bmImage.setImageBitmap(result);
+	    }
+	}
+	
+	 public void onItemSelected(AdapterView<?> parent, View view, 
+	            int pos, long id) {
+	        // An item was selected. You can retrieve the selected item using
+	        // parent.getItemAtPosition(pos)
+	    }
+
+	    public void onNothingSelected(AdapterView<?> parent) {
+	        // Another interface callback
+	    }
+	
+	
 }
+
+
+
