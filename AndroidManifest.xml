@@ -22,14 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.crawlerdemo.DatePicker"
-            android:label="@string/title_activity_date_picker" >
-        </activity>
+        
         <activity
             android:name="com.example.crawlerdemo.DisplayCrawlActivity"
             android:label="@string/title_activity_display_crawl" >
         </activity>
+      	
     </application>
-
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>
