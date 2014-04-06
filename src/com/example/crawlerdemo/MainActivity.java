@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
  	}
  	
  	public void crawlTourTab(View view) {
- 		Intent intent = new Intent(this, DisplayCrawlActivity.class);
+ 		Intent intent = new Intent(this, CrawlParameters.class);
  	    
  	    startActivity(intent);
  	}

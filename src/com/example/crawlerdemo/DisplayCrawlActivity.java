@@ -40,7 +40,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 
-public class DisplayCrawlActivity extends Activity implements OnItemSelectedListener {
+public class DisplayCrawlActivity extends Activity  {
 	private Handler mHandler = new Handler();
 	private String _id;
 	private List<String>[] _tours = new ArrayList[3];
@@ -142,15 +142,6 @@ public class DisplayCrawlActivity extends Activity implements OnItemSelectedList
 				ThreadPolicy.Builder().permitAll().build();
 				StrictMode.setThreadPolicy(policy); 
 		
-				Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-				// Create an ArrayAdapter using the string array and a default spinner layout
-				ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-				        R.array.numberBars, android.R.layout.simple_spinner_item);
-				// Specify the layout to use when the list of choices appears
-				adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-				// Apply the adapter to the spinner
-				spinner.setAdapter(adapter);
-				spinner.setOnItemSelectedListener(this);
 				
 				
 		try {
@@ -252,15 +243,7 @@ public class DisplayCrawlActivity extends Activity implements OnItemSelectedList
 	    }
 	}
 	
-	 public void onItemSelected(AdapterView<?> parent, View view, 
-	            int pos, long id) {
-	        // An item was selected. You can retrieve the selected item using
-	        // parent.getItemAtPosition(pos)
-	    }
-
-	    public void onNothingSelected(AdapterView<?> parent) {
-	        // Another interface callback
-	    }
+	 
 	
 	
 }

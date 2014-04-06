@@ -4,7 +4,6 @@
     <string name="app_name">Crawler</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    
 
     <string-array name="numberBars">
         <item>1</item>
@@ -20,5 +19,12 @@
     </string-array>
 
     <string name="title_activity_display_crawl">DisplayCrawlActivity</string>
+
+    <string-array name="barCover">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
+
+    <string name="title_activity_crawl_parameters">CrawlParameters</string>
 
 </resources>
