@@ -61,16 +61,6 @@
             android:layout_toLeftOf="@+id/textView1"
             android:text="Back" />
 
-        <Button
-            android:id="@+id/buttonCrawlOn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/textView3"
-            android:layout_marginRight="21dp"
-            android:onClick="CrawlNoGo"
-            android:text="Crawl On" />
-
         <DatePicker
             android:id="@+id/datePicker1"
             android:layout_width="wrap_content"
@@ -93,5 +83,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textView5"
                 android:layout_centerHorizontal="true" />
+
+            <Button
+                android:id="@+id/buttonCrawlOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/textView1"
+                android:onClick="CrawlNoGo"
+                android:text="Crawl On" />
     
 </RelativeLayout>

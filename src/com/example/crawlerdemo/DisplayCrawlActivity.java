@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -244,7 +245,12 @@ public class DisplayCrawlActivity extends Activity  {
 	}
 	
 	 
-	
+	public void finalize(View v) {
+		Intent intent = new Intent(this, CrawlFinalize.class);
+ 	    
+ 	    startActivity(intent);
+		
+	}
 	
 }
 

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Crawlr Challenge"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="Post to Facebook" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="Post to Twitter" />
+
+       <ImageView
+           android:id="@+id/imageView1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/textView2"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="18dp"
+           android:src="@android:drawable/ic_menu_camera" />
+
+       <Button
+           android:id="@+id/button1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/imageView1"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="25dp"
+           android:text="Submit" />
+
+       <TextView
+           android:id="@+id/textView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentLeft="true"
+           android:layout_below="@+id/imageView2"
+           android:layout_marginTop="20dp"
+           android:text="Take a picture of a Crawlr hitting on women and failing."
+           android:textAppearance="?android:attr/textAppearanceMedium" />
+
+       <ImageView
+           android:id="@+id/imageView2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignLeft="@+id/imageView1"
+           android:layout_below="@+id/textView1"
+           android:layout_marginTop="17dp"
+           android:src="@android:drawable/star_on" />
+    
+</RelativeLayout>

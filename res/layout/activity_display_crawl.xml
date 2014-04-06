@@ -10,7 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android1:orientation="vertical"
     tools:context=".DisplayCrawlActivity" >
-
+	 	<Button
+            android1:id="@+id/button1"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android:onClick="finalize"
+            android1:text="Accept" />
         <ImageView
             android1:id="@+id/imageView1"
             android1:layout_width="match_parent"
@@ -22,6 +27,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" >
         </ListView>
-    
+
+       
 
 </LinearLayout>

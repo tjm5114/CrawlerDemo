@@ -29,5 +29,9 @@
     <string name="title_activity_crawl_no_go">CrawlNoGo</string>
     <string name="title_activity_crawl_no_go2">CrawlNoGo2</string>
     <string name="title_activity_crawl_no_go3">CrawlNoGo3</string>
+    <string name="title_activity_crawl_finalize">CrawlFinalize</string>
+    <string name="title_activity_start_crawl">StartCrawl</string>
+    <string name="title_activity_check_in">CheckIn</string>
+    <string name="title_activity_challenge_post">ChallengePost</string>
 
 </resources>

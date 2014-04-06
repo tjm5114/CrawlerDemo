@@ -42,6 +42,22 @@
             android:name="com.example.crawlerdemo.CrawlNoGo3"
             android:label="@string/title_activity_crawl_no_go3" >
         </activity>
+        <activity
+            android:name="com.example.crawlerdemo.CrawlFinalize"
+            android:label="@string/title_activity_crawl_finalize" >
+        </activity>
+        <activity
+            android:name="com.example.crawlerdemo.StartCrawl"
+            android:label="@string/title_activity_start_crawl" >
+        </activity>
+        <activity
+            android:name="com.example.crawlerdemo.CheckIn"
+            android:label="@string/title_activity_check_in" >
+        </activity>
+        <activity
+            android:name="com.example.crawlerdemo.ChallengePost"
+            android:label="@string/title_activity_challenge_post" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" >

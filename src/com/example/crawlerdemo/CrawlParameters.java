@@ -76,7 +76,7 @@ public class CrawlParameters extends Activity implements OnItemSelectedListener 
     }
     
     public void CrawlNoGo(View v) {
-		Intent intent = new Intent(this, CrawlNoGo.class);
+		Intent intent = new Intent(this, StartCrawl.class);
  	    
  	    startActivity(intent);
 		
