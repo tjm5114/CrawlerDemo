@@ -2,6 +2,7 @@ package com.example.crawlerdemo;
 
 import java.util.Calendar;
 
+
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -23,32 +24,20 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	private Button crawlButton;
-	private TextView tvDisplayDate;
-	private DatePicker dpResult;
-	private Button btnChangeDate;
-	
-	private int year;
-	private int month;
-	private int day;
-	
-	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-	
-	
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-    crawlButton = (Button) this.findViewById(R.id.buttonCrawl);
-    crawlButton.setOnClickListener(new View.OnClickListener() {
+    //crawlButton = (Button) this.findViewById(R.id.buttonCrawl);
+    //crawlButton.setOnClickListener(new View.OnClickListener() {
 		
-		@Override
-		public void onClick(View v) {
-			setContentView(R.layout.crawlparams); 
-			
-		}
-	});
+//		@Override
+//		public void onClick(View v) {
+//			setContentView(R.layout.crawlparams); 
+//			
+//		}
+//	});
     
 //	    SPINNER SPINNER = (SPINNER) FINDVIEWBYID(R.ID.SPINNERBAR);
 //	 // CREATE AN ARRAYADAPTER USING THE STRING ARRAY AND A DEFAULT SPINNER LAYOUT
@@ -69,30 +58,10 @@ public class MainActivity extends Activity {
         return true;
     }   
     
- // display current date
- 	public void setCurrentDateOnView() {
-  
-// 		tvDisplayDate = (TextView) findViewById(R.id.tvDate);
-// 		dpResult = (DatePicker) findViewById(R.id.dpResult);
-  
- 		final Calendar c = Calendar.getInstance();
- 		year = c.get(Calendar.YEAR);
- 		month = c.get(Calendar.MONTH);
- 		day = c.get(Calendar.DAY_OF_MONTH);
-  
- 		// set current date into textview
- 		tvDisplayDate.setText(new StringBuilder()
- 			// Month is 0 based, just add 1
- 			.append(month + 1).append("-").append(day).append("-")
- 			.append(year).append(" "));
-  
- 		// set current date into datepicker
- 		dpResult.init(year, month, day, null);
-  
- 	}
+  	
  	
- 	public void crawlTourTab(View view) {
- 		Intent intent = new Intent(this, CrawlParameters.class);
+ 	public void launchStart(View view) {
+ 		Intent intent = new Intent(this, StartCrawl.class);
  	    
  	    startActivity(intent);
  	}

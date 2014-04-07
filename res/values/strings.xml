@@ -24,6 +24,8 @@
         <item>yes</item>
         <item>no</item>
     </string-array>
+    
+    
 
     <string name="title_activity_crawl_parameters">CrawlParameters</string>
     <string name="title_activity_crawl_no_go">CrawlNoGo</string>
@@ -33,5 +35,35 @@
     <string name="title_activity_start_crawl">StartCrawl</string>
     <string name="title_activity_check_in">CheckIn</string>
     <string name="title_activity_challenge_post">ChallengePost</string>
+    
+    <string-array name="barList">
+        <item> Allen St. Grill</item>
+        <item >Bar Bleu</item>
+        <item >The Brewery</item>
+        <item>Cafe 210</item>
+        <item >Chilis</item>
+        <item>Chrome</item>
+        <item >Chumley\'s</item>
+        <item>Darkhorse Tavern</item>
+        <item>Gingerbread Man</item>
+        <item >Indigo</item>
+        <item >Inferno</item>
+        <item >Kildares</item>
+        <item>Levels</item>
+        <item>Lion\'s Den</item>
+        <item >Local Whiskey</item>
+        <item >Mad Mex</item>
+        <item>The Phyrst</item>
+        <item >Bill Pickles Tap Room</item>
+        <item >The Rathskellar</item>
+        <item>Rotelli</item>
+        <item>Rumors Lounge</item>
+        <item>The Saloon</item>
+        <item>The Shandygaff</item>
+        <item>The Tavern Restaraunt</item>
+        <item>Z Bar</item>
+        <item>Zenos</item>
+        
+    </string-array>
 
 </resources>

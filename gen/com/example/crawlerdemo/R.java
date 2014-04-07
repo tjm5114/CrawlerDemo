@@ -10,6 +10,7 @@ package com.example.crawlerdemo;
 public final class R {
     public static final class array {
         public static final int barCover=0x7f060001;
+        public static final int barList=0x7f060002;
         public static final int numberBars=0x7f060000;
     }
     public static final class attr {
@@ -31,18 +32,18 @@ public final class R {
     }
     public static final class id {
         public static final int ScrollView1=0x7f090020;
-        public static final int action_settings=0x7f090032;
-        public static final int button1=0x7f090005;
-        public static final int button2=0x7f090009;
-        public static final int button3=0x7f09000a;
-        public static final int button4=0x7f09002a;
-        public static final int buttonCrawl=0x7f090022;
+        public static final int action_settings=0x7f090027;
+        public static final int allenGrill=0x7f09000f;
+        public static final int barBleu=0x7f090010;
+        public static final int button1=0x7f090001;
+        public static final int button2=0x7f090002;
+        public static final int button3=0x7f090022;
+        public static final int buttonCrawl=0x7f090023;
         public static final int buttonCrawlOn=0x7f09001f;
-        public static final int buttonTourTab=0x7f090031;
         public static final int checkBox1=0x7f090011;
         public static final int checkBox10=0x7f09001a;
-        public static final int checkBox2=0x7f090012;
-        public static final int checkBox3=0x7f090013;
+        public static final int checkBox2=0x7f090013;
+        public static final int checkBox3=0x7f090012;
         public static final int checkBox4=0x7f090014;
         public static final int checkBox5=0x7f090015;
         public static final int checkBox6=0x7f090016;
@@ -50,62 +51,38 @@ public final class R {
         public static final int checkBox8=0x7f090018;
         public static final int checkBox9=0x7f090019;
         public static final int datePicker1=0x7f09001d;
-        public static final int imageView1=0x7f09000b;
-        public static final int imageView2=0x7f09000c;
+        public static final int imageView1=0x7f090004;
         public static final int listView1=0x7f090021;
-        public static final int radioButton1=0x7f090027;
-        public static final int radioButton2=0x7f090026;
-        public static final int radioButton3=0x7f090028;
-        public static final int radioButton4=0x7f090029;
-        public static final int seekBar1=0x7f090023;
-        public static final int seekBar2=0x7f090024;
-        public static final int seekBar3=0x7f090025;
+        public static final int seekBar1=0x7f090024;
+        public static final int seekBar2=0x7f090025;
+        public static final int seekBar3=0x7f090026;
         public static final int spinner1=0x7f09001c;
         public static final int spinner2=0x7f09001b;
         public static final int textView1=0x7f090000;
-        public static final int textView10=0x7f09000e;
-        public static final int textView11=0x7f09000f;
-        public static final int textView12=0x7f090010;
-        public static final int textView13=0x7f09002c;
-        public static final int textView14=0x7f09002b;
-        public static final int textView15=0x7f09002f;
-        public static final int textView16=0x7f09002e;
-        public static final int textView17=0x7f09002d;
-        public static final int textView18=0x7f090030;
-        public static final int textView2=0x7f090001;
-        public static final int textView3=0x7f090002;
-        public static final int textView4=0x7f090004;
-        public static final int textView5=0x7f090003;
-        public static final int textView6=0x7f090006;
-        public static final int textView7=0x7f090007;
-        public static final int textView8=0x7f090008;
-        public static final int textView9=0x7f09000d;
+        public static final int textView10=0x7f09000c;
+        public static final int textView11=0x7f09000d;
+        public static final int textView12=0x7f09000e;
+        public static final int textView2=0x7f090003;
+        public static final int textView3=0x7f090005;
+        public static final int textView4=0x7f090006;
+        public static final int textView5=0x7f090007;
+        public static final int textView6=0x7f090008;
+        public static final int textView7=0x7f090009;
+        public static final int textView8=0x7f09000a;
+        public static final int textView9=0x7f09000b;
         public static final int timePicker1=0x7f09001e;
     }
     public static final class layout {
-        public static final int activity_alert=0x7f030000;
-        public static final int activity_browse=0x7f030001;
-        public static final int activity_challenge=0x7f030002;
-        public static final int activity_challenge_post=0x7f030003;
-        public static final int activity_check_in=0x7f030004;
-        public static final int activity_checkin=0x7f030005;
-        public static final int activity_crawl_finalize=0x7f030006;
-        public static final int activity_crawl_no_go=0x7f030007;
-        public static final int activity_crawl_no_go2=0x7f030008;
-        public static final int activity_crawl_no_go3=0x7f030009;
-        public static final int activity_crawl_parameters=0x7f03000a;
-        public static final int activity_display_crawl=0x7f03000b;
-        public static final int activity_display_crawl5=0x7f03000c;
-        public static final int activity_display_crawl_2=0x7f03000d;
-        public static final int activity_display_crawl_3=0x7f03000e;
-        public static final int activity_display_crawl_4=0x7f03000f;
-        public static final int activity_finalize=0x7f030010;
-        public static final int activity_howtocrawl=0x7f030011;
-        public static final int activity_main=0x7f030012;
-        public static final int activity_result_details=0x7f030013;
-        public static final int activity_start_crawl=0x7f030014;
-        public static final int activity_type=0x7f030015;
-        public static final int crawlparams=0x7f030016;
+        public static final int activity_crawl_finalize=0x7f030000;
+        public static final int activity_crawl_no_go=0x7f030001;
+        public static final int activity_crawl_no_go2=0x7f030002;
+        public static final int activity_crawl_no_go3=0x7f030003;
+        public static final int activity_crawl_parameters=0x7f030004;
+        public static final int activity_display_crawl=0x7f030005;
+        public static final int activity_finalize=0x7f030006;
+        public static final int activity_main=0x7f030007;
+        public static final int activity_result_details=0x7f030008;
+        public static final int activity_start_crawl=0x7f030009;
     }
     public static final class menu {
         public static final int challenge_post=0x7f080000;

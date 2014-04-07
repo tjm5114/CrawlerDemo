@@ -21,11 +21,6 @@ public class CrawlFinalize extends Activity {
 		return true;
 	}
 	
-	public void finalize(View v) {
-		Intent intent = new Intent(this, CheckIn.class);
- 	    
- 	    startActivity(intent);
-		
-	}
+	
 
 }

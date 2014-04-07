@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="Ready to Crawl Angela?"
+        android:text="Ready to Crawl?"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -25,6 +25,7 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
+        android:onClick="launchStart"		
         android:text="Sign In" />
 
 </RelativeLayout>
