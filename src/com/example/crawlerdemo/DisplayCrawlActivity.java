@@ -69,7 +69,7 @@ public class DisplayCrawlActivity extends Activity  {
 				
 		try {
 			
-			URL makeUrl = new URL(_baseUrl + "route/Inferno");
+			URL makeUrl = new URL(_baseUrl + "route/" + firstBar);
 			
 			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
 		}
