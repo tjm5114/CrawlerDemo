@@ -20,9 +20,18 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
 	
 	//create seekBar variables to pass around activites
+	
 	private SeekBar costSeekBar = null;
 	private int costProgressChanged = 1;
 	public final static String Cost_PROG = "com.example.crawlerdemo.COSTPROG";
+	
+	private SeekBar distSeekBar = null;
+	private int distProgressChanged = 1;
+	public final static String DIST_PROG = "com.example.crawlerdemo.DISTPROG";
+	
+	private SeekBar alcSeekBar = null;
+	private int alcProgressChanged = 1;
+	public final static String ALC_PROG = "com.example.crawlerdemo.ALCPROG";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +39,7 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 		setContentView(R.layout.activity_start_crawl);
 		
 		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-		costSeekBar = (SeekBar) findViewById(R.id.seekBarCost);
+		
 		
 		// Create an ArrayAdapter using the string array and a default spinner layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -46,22 +55,61 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 	
 		spinner.setOnItemSelectedListener(this);
 		
-		   costSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-	            
-	 
-	            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-	                costProgressChanged = progress;
-	            }
-	 
-	            public void onStartTrackingTouch(SeekBar seekBar) {
-	                // TODO Auto-generated method stub
-	            }
-	 
-	            public void onStopTrackingTouch(SeekBar seekBar) {
-	                Toast.makeText(StartCrawl.this,"seek bar progress:"+costProgressChanged, 
-	                        Toast.LENGTH_SHORT).show();
-	            }
-	        });
+		
+		costSeekBar = (SeekBar) findViewById(R.id.seekBarCost);
+	    costSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            
+ 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                costProgressChanged = progress;
+            }
+ 
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+ 
+            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Toast.makeText(StartCrawl.this,"seek bar progress:"+costProgressChanged, 
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
+	    
+	    distSeekBar = (SeekBar) findViewById(R.id.distSeekBar);
+	    distSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            
+	    	 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                distProgressChanged = progress;
+            }
+ 
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+ 
+            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Toast.makeText(StartCrawl.this,"seek bar progress:"+distProgressChanged, 
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
+	    
+	    alcSeekBar = (SeekBar) findViewById(R.id.alcSeekBar);
+	    alcSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+            
+	    	 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+                alcProgressChanged = progress;
+            }
+ 
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+ 
+            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Toast.makeText(StartCrawl.this,"seek bar progress:"+distProgressChanged, 
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
+	    
 		
 	}
 
@@ -76,6 +124,8 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 		Intent intent = new Intent(this, CrawlNoGo.class);
  	    intent.putExtra(FIRST_BAR, firstBar);
  	    intent.putExtra(Cost_PROG, costProgressChanged);
+ 	    intent.putExtra(ALC_PROG, alcProgressChanged);
+ 	    intent.putExtra(DIST_PROG, distProgressChanged);
  	    startActivity(intent);
 		
 	}

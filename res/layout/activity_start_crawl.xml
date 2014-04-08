@@ -53,7 +53,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/alcSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -73,7 +73,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/distSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />
@@ -83,14 +83,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Chill"
+        android:text="Near"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Poppin&apos;"
+        android:text="Far"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button

@@ -43,6 +43,7 @@ public final class R {
         public static final int ThePhyrst=0x7f090026;
         public static final int TheRathskellar=0x7f09002a;
         public static final int action_settings=0x7f090038;
+        public static final int alcSeekBar=0x7f090036;
         public static final int allenGrill=0x7f090010;
         public static final int barBleu=0x7f090011;
         public static final int brewery=0x7f090012;
@@ -66,12 +67,11 @@ public final class R {
         public static final int chumleys=0x7f090016;
         public static final int darkhorse=0x7f090017;
         public static final int datePicker1=0x7f09002e;
+        public static final int distSeekBar=0x7f090037;
         public static final int gman=0x7f090018;
         public static final int imageView1=0x7f090004;
         public static final int indigo=0x7f090019;
         public static final int listView1=0x7f090032;
-        public static final int seekBar2=0x7f090036;
-        public static final int seekBar3=0x7f090037;
         public static final int seekBarCost=0x7f090035;
         public static final int spinner1=0x7f09002d;
         public static final int spinner2=0x7f09002c;
