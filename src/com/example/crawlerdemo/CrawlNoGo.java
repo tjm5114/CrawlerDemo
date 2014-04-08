@@ -71,39 +71,39 @@ public class CrawlNoGo extends Activity {
 				CheckBox checkboxDarkhorse = (CheckBox) findViewById(R.id.darkhorse);
 				CheckBox checkboxGman = (CheckBox) findViewById(R.id.gman);
 		
-		if(checkboxAllenGrill.isActivated())
+		if(checkboxAllenGrill.isChecked())
 			{
 				tourParms.add("allenGrill");
 			}
-		if(checkboxBarBlue.isActivated())
+		if(checkboxBarBlue.isChecked())
 		{
 			tourParms.add("barBleu");
 		}
-		if(checkboxBrewery.isActivated())
+		if(checkboxBrewery.isChecked())
 		{
 			tourParms.add("brewery");
 		}
-		if(checkboxCafe.isActivated())
+		if(checkboxCafe.isChecked())
 		{
 			tourParms.add("cafe");
 		}
-		if(checkboxChilis.isActivated())
+		if(checkboxChilis.isChecked())
 		{
 			tourParms.add("chilis");
 		}
-		if(checkboxChrome.isActivated())
+		if(checkboxChrome.isChecked())
 		{
 			tourParms.add("chrome");
 		}
-		if(checkboxChumleys.isActivated())
+		if(checkboxChumleys.isChecked())
 		{
 			tourParms.add("chumleys");
 		}
-		if(checkboxDarkhorse.isActivated())
+		if(checkboxDarkhorse.isChecked())
 		{
 			tourParms.add("darkhorse");
 		}
-		if(checkboxGman.isActivated())
+		if(checkboxGman.isChecked())
 		{
 			tourParms.add("gman");
 		}
