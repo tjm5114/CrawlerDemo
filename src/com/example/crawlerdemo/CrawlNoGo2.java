@@ -8,10 +8,17 @@ import android.view.View;
 
 public class CrawlNoGo2 extends Activity {
 
+	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
+	private String firstBar;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_crawl_no_go2);
+		
+		//get intent data from previous screen (CrawlNoGo.java)
+			Intent intent = getIntent();
+			firstBar = intent.getStringExtra(StartCrawl.FIRST_BAR);
 	}
 
 	@Override
@@ -24,6 +31,9 @@ public class CrawlNoGo2 extends Activity {
 	public void CrawlNoGo(View v) {
 		Intent intent = new Intent(this, CrawlNoGo3.class);
  	    
+		//pass tour parameter string
+		intent.putExtra(FIRST_BAR, firstBar);
+		
  	    startActivity(intent);
 		
 	}

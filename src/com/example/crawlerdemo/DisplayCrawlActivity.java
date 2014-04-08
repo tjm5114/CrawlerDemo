@@ -42,11 +42,42 @@ import android.widget.Spinner;
 
 
 public class DisplayCrawlActivity extends Activity  {
+	
 	private Handler mHandler = new Handler();
 	private String _id;
 	private List<String>[] _tours = new ArrayList[3];
 	private String _baseUrl = "http://crawlrapi.ngrok.com/";
 	private String _networkImage;
+	
+	private String firstBar;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_display_crawl);
+		
+		//get intent data from previous screen (CrawlNoGo2.java)
+			Intent intent = getIntent();
+			firstBar = intent.getStringExtra(StartCrawl.FIRST_BAR);
+			System.out.println(firstBar);
+		
+		StrictMode.ThreadPolicy policy = new StrictMode.
+				ThreadPolicy.Builder().permitAll().build();
+				StrictMode.setThreadPolicy(policy); 
+		
+				
+				
+		try {
+			
+			URL makeUrl = new URL(_baseUrl + "route/Inferno");
+			
+			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}	
+    }
 	
 	public interface Request{
 		void Process(BufferedReader reader);
@@ -134,28 +165,7 @@ public class DisplayCrawlActivity extends Activity  {
 		System.out.println("Done!!");
 	}
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_display_crawl);
-		
-		StrictMode.ThreadPolicy policy = new StrictMode.
-				ThreadPolicy.Builder().permitAll().build();
-				StrictMode.setThreadPolicy(policy); 
-		
-				
-				
-		try {
-			
-			URL makeUrl = new URL(_baseUrl + "route/Inferno");
-			
-			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}	
-    }
+	
 				
 				
 	public void DoGetRequest(URL url, Request req)
