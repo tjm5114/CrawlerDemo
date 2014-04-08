@@ -37,8 +37,8 @@
     <string name="title_activity_challenge_post">ChallengePost</string>
     
     <string-array name="barList">
-        <item> Allen St. Grill</item>
-        <item >Bar Bleu</item>
+        <item id = "Allen.St..Grill"> Allen St. Grill</item>
+        <item id="Bar.Bleu" >Bar.Bleu</item>
         <item >The Brewery</item>
         <item>Cafe 210</item>
         <item >Chilis</item>

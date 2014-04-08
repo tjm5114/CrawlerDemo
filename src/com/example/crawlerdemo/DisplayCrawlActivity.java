@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -69,7 +71,8 @@ public class DisplayCrawlActivity extends Activity  {
 				
 		try {
 			
-			URL makeUrl = new URL(_baseUrl + "route/" + firstBar);
+			String encodeFirstBar = Uri.encode(firstBar);
+			URL makeUrl = new URL(_baseUrl + "route/" + encodeFirstBar);
 			
 			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
 		}

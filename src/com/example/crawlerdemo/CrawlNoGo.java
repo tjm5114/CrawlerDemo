@@ -15,8 +15,12 @@ public class CrawlNoGo extends Activity {
 	
 	//create tour parameters array 
 	ArrayList<String> tourParms = new ArrayList<String>();
+	
 	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
+	public final static String BAR_PARMS = "com.example.crawlerdemo.BAR_PARMS";
+	
 	private String firstBar;
+	
 	
 	
 	
@@ -51,6 +55,7 @@ public class CrawlNoGo extends Activity {
 		
 		//pass tour parameter string
 		intent.putExtra(FIRST_BAR, firstBar);
+		intent.putStringArrayListExtra(BAR_PARMS, tourParms);
 		
 		//start new activity CrawlNoGo2
  	    startActivity(intent);
