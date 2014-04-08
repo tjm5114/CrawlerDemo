@@ -121,7 +121,7 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 	}
 	
 	public void CrawlNoGo(View v) {
-		Intent intent = new Intent(this, CrawlNoGo.class);
+		Intent intent = new Intent(this, DisplayCrawlActivity.class);
  	    intent.putExtra(FIRST_BAR, firstBar);
  	    intent.putExtra(Cost_PROG, costProgressChanged);
  	    intent.putExtra(ALC_PROG, alcProgressChanged);

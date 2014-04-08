@@ -49,6 +49,14 @@ import android.widget.Spinner;
 
 public class DisplayCrawlActivity extends Activity  {
 	
+	public final static String Cost_PROG = "com.example.crawlerdemo.COSTPROG";
+	public final static String DIST_PROG = "com.example.crawlerdemo.DISTPROG";
+	public final static String ALC_PROG = "com.example.crawlerdemo.ALCPROG";
+	
+	private int costParms = 1;
+	private int distParms = 1;
+	private int alcParms = 1;
+	
 	private Handler mHandler = new Handler();
 	private String _id;
 	private List<String>[] _tours = new ArrayList[3];
@@ -56,9 +64,7 @@ public class DisplayCrawlActivity extends Activity  {
 	private String _networkImage;
 	
 	private String firstBar;
-	private int cost;
-	private int distance;
-	private int alcohol;
+	
 	
 	
 	@Override
@@ -70,15 +76,24 @@ public class DisplayCrawlActivity extends Activity  {
 			Intent intent = getIntent();
 			firstBar = intent.getStringExtra(StartCrawl.FIRST_BAR);
 			System.out.println(firstBar);
+			
+			costParms = intent.getIntExtra(Cost_PROG, costParms);
+			System.out.println(costParms);
+			
+			distParms = intent.getIntExtra(DIST_PROG, distParms);
+			System.out.println(distParms);
+			
+			alcParms = intent.getIntExtra(ALC_PROG, alcParms);
+			System.out.println(alcParms);
 		
 		StrictMode.ThreadPolicy policy = new StrictMode.
 				ThreadPolicy.Builder().permitAll().build();
 				StrictMode.setThreadPolicy(policy); 
 		
 				List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-				pairs.add(new BasicNameValuePair("cost", "54"));
-				pairs.add(new BasicNameValuePair("distance", "27"));
-				pairs.add(new BasicNameValuePair("alcohol", "9"));
+				pairs.add(new BasicNameValuePair("cost", Integer.toString(costParms)));
+				pairs.add(new BasicNameValuePair("distance", Integer.toString(distParms)));
+				pairs.add(new BasicNameValuePair("alcohol", Integer.toString(alcParms)));
 		
 				
 				

@@ -72,6 +72,9 @@ public class CrawlNoGo extends Activity {
 		//pass tour parameter string
 		intent.putExtra(FIRST_BAR, firstBar);
 		intent.putStringArrayListExtra(BAR_PARMS, tourParms);
+		intent.putExtra(Cost_PROG, costParms);
+ 	    intent.putExtra(ALC_PROG, alcParms);
+ 	    intent.putExtra(DIST_PROG, distParms);
 		
 		//start new activity CrawlNoGo2
  	    startActivity(intent);
