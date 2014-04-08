@@ -2,10 +2,12 @@ package com.example.crawlerdemo;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,6 +16,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -22,6 +25,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -71,9 +75,11 @@ public class DisplayCrawlActivity extends Activity  {
 				ThreadPolicy.Builder().permitAll().build();
 				StrictMode.setThreadPolicy(policy); 
 		
-		cost = 5;
-		distance = 2;
-		alcohol = 6;
+				List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+				pairs.add(new BasicNameValuePair("cost", "54"));
+				pairs.add(new BasicNameValuePair("distance", "27"));
+				pairs.add(new BasicNameValuePair("alcohol", "9"));
+		
 				
 				
 		try {
@@ -81,7 +87,7 @@ public class DisplayCrawlActivity extends Activity  {
 			String encodeFirstBar = Uri.encode(firstBar);
 			URL makeUrl = new URL(_baseUrl + "route/" + encodeFirstBar);
 			
-			DoGetRequest(makeUrl, makeRouteAndSaveId); //sets _id
+			DoPostRequest(makeUrl, makeRouteAndSaveId, pairs); //sets _id
 		}
 		catch(Exception e)
 		{
@@ -185,6 +191,25 @@ public class DisplayCrawlActivity extends Activity  {
 			  HttpURLConnection con = (HttpURLConnection) url
 			    .openConnection();
 			  readStream(con.getInputStream(), req);
+			  } catch (Exception e) {
+			  e.printStackTrace();
+			}
+        
+	}
+	
+	public void DoPostRequest(URL url, Request req, List<NameValuePair> pairs)
+	{
+		try {
+			HttpClient client = new DefaultHttpClient();
+			HttpPost post = new HttpPost(url.toURI());
+			post.setEntity(new UrlEncodedFormEntity(pairs));
+			HttpResponse response = client.execute(post);
+			
+			HttpEntity entity = response.getEntity();
+		String	Str = EntityUtils.toString(entity);
+			InputStream stream = new ByteArrayInputStream(Str.getBytes("UTF-8"));
+
+		  readStream(stream, req);
 			  } catch (Exception e) {
 			  e.printStackTrace();
 			}
