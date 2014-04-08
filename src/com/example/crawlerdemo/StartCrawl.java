@@ -7,20 +7,30 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 public class StartCrawl extends Activity implements OnItemSelectedListener {
+	
 	//create global variable to pass firstBar parameter
 	private String firstBar;
 	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
+	
+	//create seekBar variables to pass around activites
+	private SeekBar costSeekBar = null;
+	private int costProgressChanged = 1;
+	public final static String Cost_PROG = "com.example.crawlerdemo.COSTPROG";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_start_crawl);
 		
-		Spinner spinner = (Spinner) findViewById(R.id.spinner1);		
+		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+		costSeekBar = (SeekBar) findViewById(R.id.seekBarCost);
 		
 		// Create an ArrayAdapter using the string array and a default spinner layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -36,6 +46,23 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 	
 		spinner.setOnItemSelectedListener(this);
 		
+		   costSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+	            
+	 
+	            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
+	                costProgressChanged = progress;
+	            }
+	 
+	            public void onStartTrackingTouch(SeekBar seekBar) {
+	                // TODO Auto-generated method stub
+	            }
+	 
+	            public void onStopTrackingTouch(SeekBar seekBar) {
+	                Toast.makeText(StartCrawl.this,"seek bar progress:"+costProgressChanged, 
+	                        Toast.LENGTH_SHORT).show();
+	            }
+	        });
+		
 	}
 
 	@Override
@@ -48,6 +75,7 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
 	public void CrawlNoGo(View v) {
 		Intent intent = new Intent(this, CrawlNoGo.class);
  	    intent.putExtra(FIRST_BAR, firstBar);
+ 	    intent.putExtra(Cost_PROG, costProgressChanged);
  	    startActivity(intent);
 		
 	}

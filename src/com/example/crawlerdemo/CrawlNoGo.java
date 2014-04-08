@@ -18,8 +18,10 @@ public class CrawlNoGo extends Activity {
 	
 	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
 	public final static String BAR_PARMS = "com.example.crawlerdemo.BAR_PARMS";
+	public final static String Cost_PROG = "com.example.crawlerdemo.COSTPROG";
 	
 	private String firstBar;
+	private int costParms = 1;
 	
 	
 	
@@ -35,6 +37,8 @@ public class CrawlNoGo extends Activity {
 		firstBar = intent.getStringExtra(StartCrawl.FIRST_BAR);
 		System.out.println(firstBar);
 		tourParms.add(firstBar);
+		costParms = intent.getIntExtra(Cost_PROG, costParms);
+		System.out.println(costParms);
 		
 		
 		//System.out.println(tourParms);
