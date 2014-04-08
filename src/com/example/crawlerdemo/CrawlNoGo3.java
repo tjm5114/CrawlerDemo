@@ -1,5 +1,7 @@
 package com.example.crawlerdemo;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +11,11 @@ import android.view.View;
 public class CrawlNoGo3 extends Activity {
 
 	public final static String FIRST_BAR = "com.example.crawlerdemo.FIRSTBAR";
+	public final static String BAR_PARMS = "com.example.crawlerdemo.BAR_PARMS";
+	
 	private String firstBar;
+	
+	ArrayList<String> tourParms = new ArrayList<String>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,7 @@ public class CrawlNoGo3 extends Activity {
 		//get intent data from previous screen (CrawlNoGo2.java)
 		Intent intent = getIntent();
 		firstBar = intent.getStringExtra(StartCrawl.FIRST_BAR);
+		tourParms = intent.getStringArrayListExtra(BAR_PARMS);
 	}
 
 	@Override

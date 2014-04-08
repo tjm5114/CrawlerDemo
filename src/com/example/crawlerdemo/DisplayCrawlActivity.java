@@ -48,10 +48,14 @@ public class DisplayCrawlActivity extends Activity  {
 	private Handler mHandler = new Handler();
 	private String _id;
 	private List<String>[] _tours = new ArrayList[3];
-	private String _baseUrl = "http://crawlrapi.ngrok.com/";
+	private String _baseUrl = "http://crawlrapi.herokuapp.com/";
 	private String _networkImage;
 	
 	private String firstBar;
+	private int cost;
+	private int distance;
+	private int alcohol;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,9 @@ public class DisplayCrawlActivity extends Activity  {
 				ThreadPolicy.Builder().permitAll().build();
 				StrictMode.setThreadPolicy(policy); 
 		
+		cost = 5;
+		distance = 2;
+		alcohol = 6;
 				
 				
 		try {
@@ -145,7 +152,7 @@ public class DisplayCrawlActivity extends Activity  {
 				      //System.out.println("bar strings are " + barStrings);
 				    }
 				    
-				    _networkImage = _baseUrl + _id + ".png";
+				    _networkImage = _baseUrl + _id + ".pdf";
 				    new DownloadImageTask((ImageView) findViewById(R.id.imageView1))
 		            .execute(_networkImage);
 					GenerateListView();

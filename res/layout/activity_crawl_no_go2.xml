@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <CheckBox
-            android:id="@+id/checkBox1"
+            android:id="@+id/indigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
             android:text="Indigo" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/Inferno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -28,7 +28,7 @@
             android:text="Inferno" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/Kildares"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -36,7 +36,7 @@
             android:text="Kildares" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/Levels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -44,15 +44,15 @@
             android:text="Levels" />
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/LionsDen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/checkBox4"
-            android:text="Lion's Den" />
+            android:text="Lion/'s Den" />
 
         <CheckBox
-            android:id="@+id/checkBox6"
+            android:id="@+id/LocalWhiskey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -60,7 +60,7 @@
             android:text="Local Whiskey" />
 
         <CheckBox
-            android:id="@+id/checkBox7"
+            android:id="@+id/MadMex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -68,7 +68,7 @@
             android:text="Mad Mex" />
 
         <CheckBox
-            android:id="@+id/checkBox8"
+            android:id="@+id/ThePhyrst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -76,7 +76,7 @@
             android:text="The Phyrst" />
 
         <CheckBox
-            android:id="@+id/checkBox9"
+            android:id="@+id/BillPicklesTapRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -84,7 +84,7 @@
             android:text="Bill Pickles Tap Room" />
 
         <CheckBox
-            android:id="@+id/checkBox10"
+            android:id="@+id/TheRathskellar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -99,7 +99,7 @@
             android:layout_marginBottom="22dp"
             android:layout_toRightOf="@+id/textView1"
             android:onClick="CrawlNoGo"
-            android:text="More" />
+            android:text="Continue" />
 
         <TextView
             android:id="@+id/textView2"

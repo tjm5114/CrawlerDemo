@@ -58,7 +58,7 @@ public class StartCrawl extends Activity implements OnItemSelectedListener {
         // parent.getItemAtPosition(pos)
 		
 		firstBar = (String) parent.getItemAtPosition(pos);
-		firstBar = firstBar.replaceAll(" ", ".");
+		firstBar = firstBar.replace(" ", ".");
 		System.out.println(firstBar);
     }
 
